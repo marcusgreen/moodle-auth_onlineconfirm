@@ -36,7 +36,7 @@ class auth_plugin_onlineconfirm extends auth_plugin_base {
      */
     public function __construct() {
         $this->authtype = 'onlineconfirm';
-        $this->config = get_config('auth/onlineconfirm');
+        $this->config = get_config('auth_onlineconfirm');
     }
 
     /**
@@ -267,7 +267,7 @@ class auth_plugin_onlineconfirm extends auth_plugin_base {
     }
 
 	/**
-	 * Sends an email when a user signs up. 
+	 * Sends an email when a user signs up.
 	 * First checks whether the option is set.
 	 *
 	 * @param stdClass $user
@@ -280,7 +280,7 @@ class auth_plugin_onlineconfirm extends auth_plugin_base {
     if (empty($this->config->emailnew)) {          // No need to do anything
             return(false);
     }
- 
+
     $return = true;
     $emails = explode(',', $this->config->emailnew);
     $student = fullname($user);
